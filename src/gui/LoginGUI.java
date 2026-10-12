@@ -1,6 +1,8 @@
 package gui;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -57,6 +59,21 @@ public class LoginGUI extends JFrame {
 
         JButton loginButton = new JButton("Login");
         loginButton.setFont(new Font("Dialog", Font.BOLD, 18));
+        springLayout.putConstraint(SpringLayout.WEST, loginButton, 150, SpringLayout.WEST, loginPanel);
+        springLayout.putConstraint(SpringLayout.NORTH, loginButton, 250, SpringLayout.NORTH, loginPanel);
+        loginButton.addActionListener((ActionListener) new ActionListener() {
+          @Override 
+           public void actionPerformed(ActionEvent e) {
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+
+            if(username.equals("username")&& password.equals("password")){
+                System.out.println("Login succesful!");
+            } else {
+                System.out.println("Login failed");
+            }
+           }
+        });
 
         loginPanel.add(loginButton);
 
